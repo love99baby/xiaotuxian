@@ -19,12 +19,23 @@ export default defineConfig({
       resolvers: [ElementPlusResolver()],
     }),
     Components({
-      resolvers: [ElementPlusResolver()],
+      resolvers: [
+        // 配置 Element Plus 使用sass样式
+        ElementPlusResolver({ importStyle: 'sass' }),
+      ],
     }),
   ],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     },
+  },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        // 全局引入element-plus的scss变量和mixin
+        additionalData: `@use "@/styles/element/index.scss" as *;`
+      }
+    }
   },
 })
