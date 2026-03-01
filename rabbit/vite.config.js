@@ -34,7 +34,8 @@ export default defineConfig({
     preprocessorOptions: {
       scss: {
         // 全局引入element-plus的scss变量和mixin
-        additionalData: `@use "@/styles/element/index.scss" as *;`
+        additionalData: `@use "@/styles/element/index.scss" as *;
+         @use "@/styles/var.scss" as *;`,
       }
     }
   },
